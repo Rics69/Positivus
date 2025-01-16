@@ -12,7 +12,9 @@
   }
 
   &__accordion {
-     padding: 40px 60px;
+    --indicatorVerticalRotate: 90deg;
+
+    padding: 40px 60px;
     background-color: var(--color-grey);
     border: var(--border);
     border-radius: var(--border-radius-large);
@@ -25,6 +27,7 @@
 
     &[open] {
       background-color: var(--color-accent);
+      --indicatorVerticalRotate: 0;
     }
 
     &-header {
@@ -37,8 +40,37 @@
     }
 
     &-title {
+      display: flex;
+      align-items: center;
+      column-gap: 25px;
       &::before {
         content: '0' counter(custom-counter);
+        font-size: 2em;
+      }
+    }
+
+    &-indicator {
+      @include flex-center;
+      @include square(58px);
+
+      position: relative;
+      background-color: var(--color-grey);
+      border: var(--border);
+      border-radius: 50%;
+
+      &::before,
+      &::after {
+        @include abs-center;
+
+        content: '';
+        width: 45%;
+        height: 10%;
+        background-color: var(--color-dark);
+      }
+
+      &::after {
+        rotate: var(--indicatorVerticalRotate);
+        transition-duration: var(--transition-duration);
       }
     }
   }

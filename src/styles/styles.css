@@ -932,6 +932,7 @@ h4 {
   counter-increment: custom-counter;
 }
 .process__accordion {
+  --indicatorVerticalRotate: 90deg;
   padding: 40px 60px;
   background-color: var(--color-grey);
   border: var(--border);
@@ -951,6 +952,7 @@ h4 {
 }
 .process__accordion[open] {
   background-color: var(--color-accent);
+  --indicatorVerticalRotate: 0;
 }
 .process__accordion-header {
   display: flex;
@@ -960,8 +962,39 @@ h4 {
   cursor: pointer;
   user-select: none;
 }
+.process__accordion-title {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
 .process__accordion-title::before {
   content: "0" counter(custom-counter);
+  font-size: 2em;
+}
+.process__accordion-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  aspect-ratio: 1;
+  position: relative;
+  background-color: var(--color-grey);
+  border: var(--border);
+  border-radius: 50%;
+}
+.process__accordion-indicator::before, .process__accordion-indicator::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  content: "";
+  width: 45%;
+  height: 10%;
+  background-color: var(--color-dark);
+}
+.process__accordion-indicator::after {
+  rotate: var(--indicatorVerticalRotate);
+  transition-duration: var(--transition-duration);
 }
 
 /*# sourceMappingURL=styles.css.map */
