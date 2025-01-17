@@ -1057,11 +1057,25 @@ h4, .h4 {
   margin-right: 10px;
 }
 .team-card__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
   align-self: start;
   margin-left: auto;
+  color: var(--color-accent);
+  background-color: var(--color-dark);
+  border-radius: 50%;
 }
 .team-card__name:not(:last-child) {
   margin-bottom: 3px;
+}
+.team-card__body {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: var(--border);
 }
 
 .team {
