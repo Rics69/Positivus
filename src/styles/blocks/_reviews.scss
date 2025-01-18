@@ -1,9 +1,9 @@
 .reviews {
   display: flex;
   flex-direction: column;
-  row-gap: 124px;
+  row-gap: 110px;
   padding-top: 84px;
-  padding-bottom: 68px;
+  padding-bottom: 54px;
   color: var(--color-light);
   background-color: var(--color-dark);
   border-radius: var(--border-radius-large);
@@ -22,6 +22,36 @@
     &-item {
       min-width: var(--reviewsSliderSlideWidth);
       scroll-snap-align: start;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 564px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  &__arrow-button {
+    @include reset-button;
+    @include flex-center;
+    @include square(48px);
+
+    color: var(--color-light);
+
+    @include hover {
+      color: var(--color-accent);
+    }
+
+    &[disabled] {
+      color: var(--color-grey-alt);
+      cursor: not-allowed;
+    }
+
+    svg {
+      @include square(20px);
     }
   }
 }
