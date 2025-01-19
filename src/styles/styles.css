@@ -1189,16 +1189,26 @@ h4, .h4 {
   color: var(--color-light);
   background-color: var(--color-dark);
   border-radius: var(--border-radius-large);
+  overflow-x: hidden;
 }
 .reviews__slider {
   --reviewsSliderSlideWidth: 606px;
+}
+@media (max-width: 1023px) {
+  .reviews__slider {
+    --reviewsSliderSlideWidth: 330px;
+  }
 }
 .reviews__slider-list {
   display: flex;
   column-gap: 50px;
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
-  margin-left: calc(var(--reviewsSliderSlideWidth) / 2 * -1);
+}
+@media (min-width: 1024px) {
+  .reviews__slider-list {
+    margin-left: calc(var(--reviewsSliderSlideWidth) / 2 * -1);
+  }
 }
 .reviews__slider-item {
   min-width: var(--reviewsSliderSlideWidth);
