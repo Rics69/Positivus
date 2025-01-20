@@ -9,6 +9,11 @@
   border-radius: var(--border-radius-large);
   overflow-x: hidden;
 
+  @include tablet {
+    padding: 30px 30px 46px;
+    row-gap: 46px;
+  }
+
   &__slider {
     --reviewsSliderSlideWidth: 606px;
 
@@ -24,6 +29,10 @@
 
       @include tablet-above {
         margin-left: calc(var(--reviewsSliderSlideWidth) / 2 * -1);
+      }
+
+      @include tablet {
+        column-gap: 30px;
       }
     }
 
